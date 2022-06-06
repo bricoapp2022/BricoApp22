@@ -11,18 +11,6 @@ package bricoapp22;
 public class Administrateur extends Utilisateur{
     private String messageSignale;
 
-    public Administrateur(String messageSignale, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, String typeCompte, String adresse) {
-        super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
-        this.messageSignale = messageSignale;
-    }
     
-
-    public String getMessageSignale() {
-        return messageSignale;
-    }
-
-    public void setMessageSignale(String messageSignale) {
-        this.messageSignale = messageSignale;
-    }
     
 }

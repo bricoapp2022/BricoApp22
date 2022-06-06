@@ -14,16 +14,7 @@ import java.util.Set;
 public class Categorie {
     private Set <String> nomCategorie= new HashSet();
 
-    public Categorie() {
-    }
-
-    public Set <String> getNomCategorie() {
-        return nomCategorie;
-    }
-
-    public void setNomCategorie(Set <String> nomCategorie) {
-        this.nomCategorie = nomCategorie;
-    }
+   
 
   
     

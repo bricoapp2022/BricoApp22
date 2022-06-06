@@ -13,5 +13,7 @@ import java.util.Date;
 public class Signaler {
     Date dateSignalisation;
     String raisonSignalisation;
+    Membre membre;
+    Annonce annonce;
     
 }

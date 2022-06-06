@@ -11,5 +11,7 @@ package bricoapp22;
 public class Detail {
     String note;
     String commentaire;
+    Membre membre;
+    Annonce annonce;
     
 }

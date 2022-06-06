@@ -13,6 +13,7 @@ import java.util.Date;
 public class Message {
     String contenue;
     Date dateCreation;
+    Membre membre;
     
     
 }

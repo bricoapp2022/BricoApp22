@@ -12,5 +12,8 @@ import java.util.Date;
  */
 public class Favoris {
     Date dateAjout;
+    Membre membre;
+    Annonce annonce;
+    
     
 }

@@ -4,24 +4,19 @@
  */
 package bricoapp22;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author fadi
  */
 public class Membre extends Utilisateur {
     private String etatMembre;
+    Set <String> annonces = new HashSet(0);
+    Set <String> messageRecu = new HashSet(0);
+    Set <String> messageEnvoye = new HashSet(0);
 
-    public Membre(String etatMembre, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, String typeCompte, String adresse) {
-        super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
-        this.etatMembre = etatMembre;
-    }
-
-    public String getEtatMembre() {
-        return etatMembre;
-    }
-
-    public void setEtatMembre(String etatMembre) {
-        this.etatMembre = etatMembre;
-    }
+   
     
 }
