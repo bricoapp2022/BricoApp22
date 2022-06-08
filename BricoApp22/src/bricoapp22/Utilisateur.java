@@ -16,7 +16,7 @@ public class Utilisateur {
     protected String login;
     protected String motDePasse;
     protected String numeroCompte;
-    protected String typeCompte;
+    TypeCompte typeCompte;
     protected String adresse;
 
 

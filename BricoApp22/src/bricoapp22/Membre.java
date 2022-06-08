@@ -12,7 +12,7 @@ import java.util.Set;
  * @author fadi
  */
 public class Membre extends Utilisateur {
-    private String etatMembre;
+    private boolean etatMembre;
     Set <String> annonces = new HashSet(0);
     Set <String> messageRecu = new HashSet(0);
     Set <String> messageEnvoye = new HashSet(0);
