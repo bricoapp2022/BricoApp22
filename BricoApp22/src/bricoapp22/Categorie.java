@@ -13,6 +13,9 @@ import java.util.Set;
  */
 public class Categorie {
     private Set <String> nomCategorie= new HashSet();
+    private Set <String> annonces= new HashSet();
+    Administrateur administrateur;
+    
 
    
 

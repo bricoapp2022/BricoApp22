@@ -18,6 +18,7 @@ public class Annonce {
     private boolean etatAnnonce;
     private Date datePublication;
     Membre membre;
+    Categorie categorie;
 
    
     

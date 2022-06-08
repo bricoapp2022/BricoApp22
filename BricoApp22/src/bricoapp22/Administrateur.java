@@ -4,12 +4,17 @@
  */
 package bricoapp22;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author fadi
  */
 public class Administrateur extends Utilisateur{
     private String messageSignale;
+    Set <String> utilisateurs = new HashSet(0);
+    private Set <String> categorie= new HashSet();
 
     
     

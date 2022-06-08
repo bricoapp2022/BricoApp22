@@ -4,6 +4,9 @@
  */
 package bricoapp22;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author fadi
@@ -18,6 +21,8 @@ public class Utilisateur {
     protected String numeroCompte;
     TypeCompte typeCompte;
     protected String adresse;
+    Set <String> messageRecu = new HashSet(0);
+    Set <String> messageEnvoye = new HashSet(0);
 
 
 

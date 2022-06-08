@@ -14,9 +14,7 @@ import java.util.Set;
 public class Membre extends Utilisateur {
     private boolean etatMembre;
     Set <String> annonces = new HashSet(0);
-    Set <String> messageRecu = new HashSet(0);
-    Set <String> messageEnvoye = new HashSet(0);
-
+    Administrateur admin;
    
     
 }
