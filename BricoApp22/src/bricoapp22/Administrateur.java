@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class Administrateur extends Utilisateur{
     private String messageSignale;
-    private Set <String> utilisateurs = new HashSet(0);
+    private Set <Membre> utilisateurs = new HashSet(0);
     private Set <String> categorie= new HashSet();
 
     public Administrateur(String messageSignale, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
@@ -28,11 +28,11 @@ public class Administrateur extends Utilisateur{
     public Administrateur() {
     }
 
-    public Set <String> getUtilisateurs() {
+    public Set <Membre> getUtilisateurs() {
         return utilisateurs;
     }
 
-    public void setUtilisateurs(Set <String> utilisateurs) {
+    public void setUtilisateurs(Set <Membre> utilisateurs) {
         this.utilisateurs = utilisateurs;
     }
 
@@ -52,6 +52,10 @@ public class Administrateur extends Utilisateur{
         this.categorie = categorie;
     }
 
-    
+    public void afficherMembres (){
+        for (Membre e: this.utilisateurs){
+            System.out.println(e.toString());
+        }
+    }
     
 }

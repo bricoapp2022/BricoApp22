@@ -20,6 +20,7 @@ public class Membre extends Utilisateur {
         super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
         this.etatMembre = etatMembre;
         this.admin = admin;
+        this.admin.getUtilisateurs().add(this);
     }
 
     public Membre(boolean etatMembre, Administrateur admin) {

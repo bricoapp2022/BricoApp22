@@ -127,6 +127,11 @@ public class Utilisateur {
         this.messageEnvoye = messageEnvoye;
     }
 
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel + ", telephone=" + telephone + ", login=" + login + ", motDePasse=" + motDePasse + ", numeroCompte=" + numeroCompte + ", typeCompte=" + typeCompte + ", adresse=" + adresse + ", messageRecu=" + messageRecu + ", messageEnvoye=" + messageEnvoye + '}';
+    }
+
 
 
 
