@@ -14,7 +14,38 @@ import java.util.Set;
 public class Categorie {
     private Set <String> nomCategorie= new HashSet();
     private Set <String> annonces= new HashSet();
-    Administrateur administrateur;
+    private Administrateur administrateur;
+
+    public Categorie(Administrateur administrateur) {
+        this.administrateur = administrateur;
+    }
+
+    public Categorie() {
+    }
+
+    public Administrateur getAdministrateur() {
+        return administrateur;
+    }
+
+    public void setAdministrateur(Administrateur administrateur) {
+        this.administrateur = administrateur;
+    }
+
+    public Set <String> getNomCategorie() {
+        return nomCategorie;
+    }
+
+    public void setNomCategorie(Set <String> nomCategorie) {
+        this.nomCategorie = nomCategorie;
+    }
+
+    public Set <String> getAnnonces() {
+        return annonces;
+    }
+
+    public void setAnnonces(Set <String> annonces) {
+        this.annonces = annonces;
+    }
     
 
    
