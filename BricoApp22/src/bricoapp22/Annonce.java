@@ -29,6 +29,8 @@ public class Annonce {
         this.datePublication = datePublication;
         this.membre = membre;
         this.categorie = categorie;
+        
+        this.membre.getAnnonces().add(this);
     }
 
     public Annonce() {

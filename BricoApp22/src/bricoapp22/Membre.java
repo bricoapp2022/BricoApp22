@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class Membre extends Utilisateur {
     private boolean etatMembre;
-    private Set <String> annonces = new HashSet(0);
+    private Set <Annonce> annonces = new HashSet(0);
     private Administrateur admin;
 
     public Membre(boolean etatMembre, Administrateur admin, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
@@ -31,11 +31,11 @@ public class Membre extends Utilisateur {
     public Membre() {
     }
 
-    public Set <String> getAnnonces() {
+    public Set <Annonce> getAnnonces() {
         return annonces;
     }
 
-    public void setAnnonces(Set <String> annonces) {
+    public void setAnnonces(Set <Annonce> annonces) {
         this.annonces = annonces;
     }
 
@@ -53,6 +53,11 @@ public class Membre extends Utilisateur {
 
     public void setEtatMembre(boolean etatMembre) {
         this.etatMembre = etatMembre;
+    }
+    public void afficheMembre(){
+        for (Annonce e: annonces){
+            System.out.println("Annonce : " + e.toString());
+        }
     }
    
     

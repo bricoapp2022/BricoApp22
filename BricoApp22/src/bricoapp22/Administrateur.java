@@ -6,6 +6,7 @@ package bricoapp22;
 
 import java.util.HashSet;
 import java.util.Set;
+import bricoapp22.Categorie;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.Set;
 public class Administrateur extends Utilisateur{
     private String messageSignale;
     private Set <Membre> utilisateurs = new HashSet(0);
-    private Set <String> categorie= new HashSet();
+    private Set <Categorie> categorie= new HashSet();
 
     public Administrateur(String messageSignale, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
         super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
@@ -44,11 +45,11 @@ public class Administrateur extends Utilisateur{
         this.messageSignale = messageSignale;
     }
 
-    public Set <String> getCategorie() {
+    public Set <Categorie> getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(Set <String> categorie) {
+    public void setCategorie(Set <Categorie> categorie) {
         this.categorie = categorie;
     }
 
@@ -57,5 +58,9 @@ public class Administrateur extends Utilisateur{
             System.out.println(e.toString());
         }
     }
-    
+    public void afficheAdmin(){
+        for (Categorie e: categorie){
+            System.out.println("Categorie : " + e.toString());
+        }
+    }
 }

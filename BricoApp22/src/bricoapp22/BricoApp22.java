@@ -4,6 +4,8 @@
  */
 package bricoapp22;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author fadi
@@ -19,6 +21,14 @@ public class BricoApp22 {
         Membre fadi = new Membre(true, fouad, "Ibrahim", "fadi", "fadi@bricoapp.com", 01234567, "fadi", "password", "F002", TypeCompte.client, "Laval Canada");
         Membre zied = new Membre(true, fouad, "zarzour", "zizo", "zizo@bricoapp.com", 01234561, "zarzour", "password2", "z002", TypeCompte.client, "Laval Canada");
         fouad.afficherMembres();
+        
+        Categorie bricos = new Categorie(fouad);
+        Categorie bricos2 = new Categorie(fouad);
+        Categorie bricos3 = new Categorie(fouad);
+        fouad.afficheAdmin();
+        LocalDate todayDate = LocalDate.now();
+        Annonce marteau = new Annonce("desc Marteau", "marteau", 123, "URL image", true, todayDate.getDayOfYear(), zied, bricos3)
+        
     }
 
 }

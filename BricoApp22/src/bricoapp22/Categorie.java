@@ -18,6 +18,7 @@ public class Categorie {
 
     public Categorie(Administrateur administrateur) {
         this.administrateur = administrateur;
+        this.administrateur.getCategorie().add(this);
     }
 
     public Categorie() {
@@ -45,6 +46,11 @@ public class Categorie {
 
     public void setAnnonces(Set <String> annonces) {
         this.annonces = annonces;
+    }
+
+    @Override
+    public String toString() {
+        return "Categorie{" + "nomCategorie=" + nomCategorie + ", annonces=" + annonces + ", administrateur=" + administrateur + '}';
     }
     
 
