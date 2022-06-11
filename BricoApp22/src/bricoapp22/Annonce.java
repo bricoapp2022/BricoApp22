@@ -20,17 +20,18 @@ public class Annonce {
     private Membre membre;
     private Categorie categorie;
 
-    public Annonce(String description, String nomOutil, int idAnnonce, String image, boolean etatAnnonce, Date datePublication, Membre membre, Categorie categorie) {
+    public Annonce(String description, String nomOutil,String image, Membre membre, Categorie categorie) {
+        Date date = new Date();
         this.description = description;
         this.nomOutil = nomOutil;
-        this.idAnnonce = idAnnonce;
         this.image = image;
-        this.etatAnnonce = etatAnnonce;
-        this.datePublication = datePublication;
+        this.etatAnnonce=true;
+        this.datePublication = date;
         this.membre = membre;
         this.categorie = categorie;
         
         this.membre.getAnnonces().add(this);
+        this.categorie.getAnnonces().add(this);
     }
 
     public Annonce() {
@@ -100,6 +101,12 @@ public class Annonce {
         this.datePublication = datePublication;
     }
 
+    @Override
+    public String toString() {
+        return "Annonce{" + "description=" + description + ", nomOutil=" + nomOutil + ", membre=" + membre.getNom() + ", categorie=" + categorie + '}';
+    }
+
+ 
    
     
 }

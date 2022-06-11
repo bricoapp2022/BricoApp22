@@ -15,12 +15,17 @@ public class Signaler {
     private String raisonSignalisation;
     private Membre membre;
     private Annonce annonce;
+    private Administrateur administrateur;
 
-    public Signaler(Date dateSignalisation, String raisonSignalisation, Membre membre, Annonce annonce) {
+    public Signaler( String raisonSignalisation, Membre membre, Annonce annonce, Administrateur administrateur) {
+        Date date = new Date();
+        this.dateSignalisation=date;
         this.dateSignalisation = dateSignalisation;
         this.raisonSignalisation = raisonSignalisation;
         this.membre = membre;
         this.annonce = annonce;
+        this.administrateur=administrateur;
+        this.administrateur.getSignalements().add(this);
     }
 
     public Signaler() {
@@ -56,6 +61,11 @@ public class Signaler {
 
     public void setAnnonce(Annonce annonce) {
         this.annonce = annonce;
+    }
+
+    @Override
+    public String toString() {
+        return "Signaler{" + "dateSignalisation=" + dateSignalisation + ", raisonSignalisation=" + raisonSignalisation + ", membre=" + membre + ", annonce=" + annonce + ", administrateur=" + administrateur + '}';
     }
     
     

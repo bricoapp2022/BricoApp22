@@ -15,7 +15,8 @@ import bricoapp22.Categorie;
 public class Administrateur extends Utilisateur{
     private String messageSignale;
     private Set <Membre> utilisateurs = new HashSet(0);
-    private Set <Categorie> categorie= new HashSet();
+    private Set <Categorie> categorie= new HashSet(0);
+    private Set <Signaler> signalements= new HashSet(0);
 
     public Administrateur(String messageSignale, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
         super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
@@ -62,5 +63,12 @@ public class Administrateur extends Utilisateur{
         for (Categorie e: categorie){
             System.out.println("Categorie : " + e.toString());
         }
+        for (Signaler e: signalements){
+            System.out.println("Signalements : " + e.toString());
+        }
+    }
+
+    public Set <Signaler> getSignalements() {
+        return signalements;
     }
 }

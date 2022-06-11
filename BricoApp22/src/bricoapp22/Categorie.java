@@ -12,11 +12,12 @@ import java.util.Set;
  * @author fadi
  */
 public class Categorie {
-    private Set <String> nomCategorie= new HashSet();
-    private Set <String> annonces= new HashSet();
+    private String nomCategorie;
+    private Set <Annonce> annonces= new HashSet();
     private Administrateur administrateur;
 
-    public Categorie(Administrateur administrateur) {
+    public Categorie(Administrateur administrateur, String nomCategorie) {
+        this.nomCategorie=nomCategorie;
         this.administrateur = administrateur;
         this.administrateur.getCategorie().add(this);
     }
@@ -32,27 +33,34 @@ public class Categorie {
         this.administrateur = administrateur;
     }
 
-    public Set <String> getNomCategorie() {
+    public String getNomCategorie() {
         return nomCategorie;
     }
 
-    public void setNomCategorie(Set <String> nomCategorie) {
+    public void setNomCategorie(String nomCategorie) {
         this.nomCategorie = nomCategorie;
     }
 
-    public Set <String> getAnnonces() {
+    public Set <Annonce> getAnnonces() {
         return annonces;
     }
 
-    public void setAnnonces(Set <String> annonces) {
+    public void setAnnonces(Set <Annonce> annonces) {
         this.annonces = annonces;
+    }
+    
+   
+    public void afficherCategorie(){
+        System.out.println(toString());
+        for (Annonce e: annonces){
+            System.out.println(e.toString());
+        }
     }
 
     @Override
     public String toString() {
-        return "Categorie{" + "nomCategorie=" + nomCategorie + ", annonces=" + annonces + ", administrateur=" + administrateur + '}';
+        return "Categorie{" + "nomCategorie=" + nomCategorie  + ", administrateur=" + administrateur.getNom() + '}';
     }
-    
 
    
 

@@ -12,17 +12,17 @@ import java.util.Set;
  * @author fadi
  */
 public class Utilisateur {
-    private String nom;
-    private String prenom;
-    private String courriel;
-    private int telephone;
-    private String login;
-    private String motDePasse;
-    private String numeroCompte;
-    private TypeCompte typeCompte;
-    private String adresse;
-    private Set <String> messageRecu = new HashSet(0);
-    private Set <String> messageEnvoye = new HashSet(0);
+    protected String nom;
+    protected String prenom;
+    protected String courriel;
+    protected int telephone;
+    protected String login;
+    protected String motDePasse;
+    protected String numeroCompte;
+    protected TypeCompte typeCompte;
+    protected String adresse;
+    protected Set <Message> messageRecu = new HashSet(0);
+    protected Set <Message> messageEnvoye = new HashSet(0);
 
     public Utilisateur(String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
         this.nom = nom;
@@ -111,19 +111,19 @@ public class Utilisateur {
         this.adresse = adresse;
     }
 
-    public Set<String> getMessageRecu() {
+    public Set<Message> getMessageRecu() {
         return messageRecu;
     }
 
-    public void setMessageRecu(Set<String> messageRecu) {
+    public void setMessageRecu(Set<Message> messageRecu) {
         this.messageRecu = messageRecu;
     }
 
-    public Set<String> getMessageEnvoye() {
+    public Set<Message> getMessageEnvoye() {
         return messageEnvoye;
     }
 
-    public void setMessageEnvoye(Set<String> messageEnvoye) {
+    public void setMessageEnvoye(Set<Message> messageEnvoye) {
         this.messageEnvoye = messageEnvoye;
     }
 
@@ -132,7 +132,20 @@ public class Utilisateur {
         return "Utilisateur{" + "nom=" + nom + ", prenom=" + prenom + ", courriel=" + courriel + ", telephone=" + telephone + ", login=" + login + ", motDePasse=" + motDePasse + ", numeroCompte=" + numeroCompte + ", typeCompte=" + typeCompte + ", adresse=" + adresse + ", messageRecu=" + messageRecu + ", messageEnvoye=" + messageEnvoye + '}';
     }
 
-
+    public void afficherUtilisateur(){
+        System.out.println(toString());
+        System.out.println("Messages recu: ");
+          
+        if(!messageRecu.isEmpty()){
+        for (Message e: messageRecu){
+            System.out.println( e.toString());
+        }}
+          System.out.println("Messages Envoye: ");
+          if(!messageEnvoye.isEmpty()){
+          for (Message e: messageEnvoye){
+            System.out.println( e.toString());
+        }}
+    }
 
 
 }

@@ -13,12 +13,19 @@ import java.util.Date;
 public class Message {
     private String contenue;
     private Date dateCreation;
-    private Utilisateur utilisateur;
+    private Utilisateur utilisateurSender;
+    private Utilisateur utilisateurReceiver;
+   
 
-    public Message(String contenue, Date dateCreation, Utilisateur utilisateur) {
+    public Message(String contenue, Utilisateur utilisateurReceiver,Utilisateur utilisateurSender) {
+        Date date = new Date();
+        this.dateCreation=date;
         this.contenue = contenue;
-        this.dateCreation = dateCreation;
-        this.utilisateur = utilisateur;
+        this.utilisateurSender=utilisateurSender;
+        this.utilisateurReceiver=utilisateurReceiver;
+        this.utilisateurSender.getMessageEnvoye().add(this);
+        this.utilisateurReceiver.getMessageRecu().add(this);
+        
     }
 
     public Message() {
@@ -40,12 +47,18 @@ public class Message {
         this.dateCreation = dateCreation;
     }
 
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+
+    public Utilisateur getUtilisateurSender() {
+        return utilisateurSender;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
+    public Utilisateur getUtilisateurReceiver() {
+        return utilisateurReceiver;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" + "contenue=" + contenue + ", dateCreation=" + dateCreation + ", utilisateurSender=" + utilisateurSender.getNom() + ", utilisateurReceiver=" + utilisateurReceiver.getNom() + '}';
     }
    
     
