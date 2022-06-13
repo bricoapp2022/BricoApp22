@@ -65,7 +65,7 @@ public class Signaler {
 
     @Override
     public String toString() {
-        return "Signaler{" + "dateSignalisation=" + dateSignalisation + ", raisonSignalisation=" + raisonSignalisation + ", membre=" + membre + ", annonce=" + annonce + ", administrateur=" + administrateur + '}';
+        return "Signaler{" + "dateSignalisation=" + dateSignalisation + ", raisonSignalisation=" + raisonSignalisation + ", membre=" + membre.getNom() + ", annonce=" + annonce.getNomOutil() + ", administrateur=" + administrateur.getNom() + '}';
     }
     
     

@@ -15,8 +15,9 @@ public class Favoris {
     private Membre membre;
     private Annonce annonce;
 
-    public Favoris(Date dateAjout, Membre membre, Annonce annonce) {
-        this.dateAjout = dateAjout;
+    public Favoris( Membre membre, Annonce annonce) {
+        Date date = new Date();
+        this.dateAjout=date;
         this.membre = membre;
         this.annonce = annonce;
     }
@@ -46,6 +47,11 @@ public class Favoris {
 
     public void setAnnonce(Annonce annonce) {
         this.annonce = annonce;
+    }
+
+    @Override
+    public String toString() {
+        return "Favoris{" + "dateAjout=" + dateAjout + ", membre=" + membre.getNom() + ", annonce=" + annonce.getNomOutil() + '}';
     }
     
     

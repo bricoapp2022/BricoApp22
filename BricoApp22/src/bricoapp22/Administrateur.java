@@ -63,6 +63,7 @@ public class Administrateur extends Utilisateur{
         for (Categorie e: categorie){
             System.out.println("Categorie : " + e.toString());
         }
+        System.out.println("Annonces signalées :");
         for (Signaler e: signalements){
             System.out.println("Signalements : " + e.toString());
         }

@@ -55,5 +55,10 @@ public class Detail {
     public void setAnnonce(Annonce annonce) {
         this.annonce = annonce;
     }
+
+    @Override
+    public String toString() {
+        return "Detail{" + "note=" + note + ", commentaire=" + commentaire + ", membre=" + membre.getNom() + ", annonce=" + annonce.getNomOutil() + '}';
+    }
     
 }

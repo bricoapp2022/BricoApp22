@@ -39,12 +39,18 @@ public class BricoApp22 {
         Signaler sign1 = new Signaler("trompeuse", fadi, ann3, fouad);
         Signaler sign2 = new Signaler("frauduleuse", fadi, ann2, fouad);
         
-        fouad.afficheAdmin();
+        Detail eval1= new Detail("very good", "Tres bonne experience", fadi, ann3);
+        
+        Favoris fav1 = new Favoris(fadi, ann1);
+        
         plomberie.afficherCategorie();
         
         fadi.afficherUtilisateur();
         zarzour.afficherUtilisateur();
         fouad.afficherUtilisateur();
+        fouad.afficheAdmin();
+        System.out.println(eval1);
+        System.out.println(fav1);
         
         
     }
