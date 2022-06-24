@@ -4,8 +4,13 @@
  */
 package bricoapp22;
 
+import static bricoapp22.NewClass.con;
+import static bricoapp22.NewClass.stm;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +20,7 @@ public class Utilisateur {
     protected String nom;
     protected String prenom;
     protected String courriel;
-    protected int telephone;
+    protected String telephone;
     protected String login;
     protected String motDePasse;
     protected String numeroCompte;
@@ -23,22 +28,55 @@ public class Utilisateur {
     protected String adresse;
     protected Set <Message> messageRecu = new HashSet(0);
     protected Set <Message> messageEnvoye = new HashSet(0);
+    public static int idUser=0;
+    public static NewClass conn=new NewClass();
 
-    public Utilisateur(String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
+    public Utilisateur(String nom, String prenom, String courriel, String telephone, String login, String motDePasse, TypeCompte typeCompte, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.courriel = courriel;
         this.telephone = telephone;
         this.login = login;
         this.motDePasse = motDePasse;
-        this.numeroCompte = numeroCompte;
+       
         this.typeCompte = typeCompte;
         this.adresse = adresse;
+        this.idUser++;
+        insertUser();
     }
 
     public Utilisateur() {
     }
 
+    public void insertUser(){
+        try {
+            conn.createConnectionDatabase();
+            String sql="Insert into Utilisateur values(?,?,?,?,?,?,?,?,?,?)";
+            stm=con.prepareStatement(sql);
+            stm.setInt(1, this.idUser);
+            stm.setString(2, this.nom);
+            stm.setString(3, this.prenom);
+            stm.setString(4, this.courriel);
+            stm.setString(5, this.telephone);
+            stm.setString(6, this.login);
+            stm.setString(7, this.motDePasse);
+            stm.setString(8, formatNumCompte(String.valueOf(this.typeCompte)));
+            stm.setString(9, String.valueOf(this.typeCompte));
+            stm.setString(10, this.adresse);
+            int resultat=stm.executeUpdate();
+             if (resultat>0){
+                 System.out.println("Insertion reussie");
+             }else{
+                 System.out.println("Insertion echouée");
+             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilisateur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public String formatNumCompte(String typeCompte){
+        numeroCompte= "B"+ typeCompte + idUser;
+        return numeroCompte;
+    }
     public String getNom() {
         return nom;
     }
@@ -63,11 +101,11 @@ public class Utilisateur {
         this.courriel = courriel;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 

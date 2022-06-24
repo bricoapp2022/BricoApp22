@@ -12,6 +12,6 @@ import jdk.javadoc.doclet.DocletEnvironment;
  */
 public enum TypeCompte {
     
-    client,Administrateur
+    M,A
     
 }

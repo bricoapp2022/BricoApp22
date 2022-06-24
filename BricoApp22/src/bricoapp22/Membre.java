@@ -4,8 +4,14 @@
  */
 package bricoapp22;
 
+import static bricoapp22.NewClass.con;
+import static bricoapp22.NewClass.stm;
+import static bricoapp22.Utilisateur.conn;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,13 +22,34 @@ public class Membre extends Utilisateur {
     private Set <Annonce> annonces = new HashSet(0);
     private Administrateur admin;
 
-    public Membre(boolean etatMembre, Administrateur admin, String nom, String prenom, String courriel, int telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
-        super(nom, prenom, courriel, telephone, login, motDePasse, numeroCompte, typeCompte, adresse);
+    public Membre(boolean etatMembre,String nom, String prenom, String courriel, String telephone, String login, String motDePasse, TypeCompte typeCompte, String adresse) {
+        super(nom, prenom, courriel, telephone, login, motDePasse, typeCompte, adresse);
         this.etatMembre = etatMembre;
-        this.admin = admin;
-        this.admin.getUtilisateurs().add(this);
+        //this.admin = admin;
+        //this.admin.getUtilisateurs().add(this);
+        insertMember();
     }
-
+    public void insertMember(){
+        
+        try {
+            System.out.println("Id du super " + super.idUser);
+            conn.createConnectionDatabase();
+            String sql="Insert into Membre values(?,?,?)";
+            stm=con.prepareStatement(sql);
+            stm.setInt(1, super.idUser);
+            stm.setString(2, "actif");
+            stm.setInt(3, super.idUser);
+            
+            int resultat=stm.executeUpdate();
+             if (resultat>0){
+                 System.out.println("Insertion reussie");
+             }else{
+                 System.out.println("Insertion echouée");
+             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilisateur.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public Membre(boolean etatMembre, Administrateur admin) {
         this.etatMembre = etatMembre;
         this.admin = admin;
