@@ -19,9 +19,16 @@ public class BricoApp22 {
     public static void main(String[] args) {
         
         
-        Utilisateur hicham = new Utilisateur("hicam", "fouad", "hicha@bricoapp", "438-xxxxxxx", "hichamBrico", "secret", TypeCompte.M, "montreal quebec");
-        Utilisateur hicham2 = new Utilisateur("Ibrahim", "fadi", "fadi@bricoapp", "514-xxxxxxx", "fadiBrico", "secret",  TypeCompte.M, "Laval quebec");
-        Membre fouad = new Membre(true, "nomMembre", "prenomMembre", "courrielMembre", "514-zzzzzz", "loginMembre", "secretMembre",  TypeCompte.M, "addresseMembre");
+        
+    Membre fouad = new Membre(true, "nomMembre", "prenomMembre", "courrielMembre", "514-zzzzzz", "loginMembre", "secretMembre",  TypeCompte.M, "addresseMembre");
+    Categorie jardinage=new Categorie("jardinage");
+    Categorie plomberie=new Categorie("plomberie");
+    Categorie menuiserie=new Categorie("menuiserie");
+    Annonce ann1=new Annonce("Une annonce tres importante", "marteau magique", "marteau.jpg", fouad, plomberie);
+    
+    
+    
+    
     }
 
 }

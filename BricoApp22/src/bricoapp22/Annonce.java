@@ -4,7 +4,13 @@
  */
 package bricoapp22;
 
+import static bricoapp22.NewClass.con;
+import static bricoapp22.NewClass.stm;
+import static bricoapp22.Utilisateur.conn;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,13 +19,16 @@ import java.util.Date;
 public class Annonce {
     private String description;
     private String nomOutil;
-    private int idAnnonce;
+    private static int idAnnonce=0;
     private String image;
     private boolean etatAnnonce;
     private Date datePublication;
     private Membre membre;
     private Categorie categorie;
-
+    public static NewClass conn=new NewClass();
+    
+    
+    
     public Annonce(String description, String nomOutil,String image, Membre membre, Categorie categorie) {
         Date date = new Date();
         this.description = description;
@@ -32,6 +41,36 @@ public class Annonce {
         
         this.membre.getAnnonces().add(this);
         this.categorie.getAnnonces().add(this);
+        this.idAnnonce++;
+        insertAnnonce();
+    }
+    public void insertAnnonce(){
+         
+        try {
+            
+            
+            String sql="Insert into Annonce values(?,?,?,?,?,?,?,?)";
+            stm=con.prepareStatement(sql);
+            stm.setInt(1, idAnnonce);
+            stm.setString(2,description);
+            stm.setString(3,nomOutil);
+            stm.setString(4,image);
+            stm.setString(5,etatAnnonce?"actif":"inactif");
+            stm.setDate(6,new java.sql.Date(datePublication.getTime()));
+            stm.setInt(7,categorie.getIdCategorie());
+            stm.setInt(8,membre.getID());
+            
+            
+            
+            int resultat=stm.executeUpdate();
+             if (resultat>0){
+                 System.out.println("Insertion reussie");
+             }else{
+                 System.out.println("Insertion echouée");
+             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilisateur.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public Annonce() {

@@ -32,13 +32,13 @@ public class Membre extends Utilisateur {
     public void insertMember(){
         
         try {
-            System.out.println("Id du super " + super.idUser);
+            
             conn.createConnectionDatabase();
             String sql="Insert into Membre values(?,?,?)";
             stm=con.prepareStatement(sql);
-            stm.setInt(1, super.idUser);
+            stm.setInt(1, super.getIdUser());
             stm.setString(2, "actif");
-            stm.setInt(3, super.idUser);
+            stm.setInt(3, super.getIdUser());
             
             int resultat=stm.executeUpdate();
              if (resultat>0){
@@ -61,7 +61,9 @@ public class Membre extends Utilisateur {
     public Set <Annonce> getAnnonces() {
         return annonces;
     }
-
+    public int getID(){
+    return super.getIdUser();
+}
     public void setAnnonces(Set <Annonce> annonces) {
         this.annonces = annonces;
     }

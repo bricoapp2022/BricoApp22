@@ -7,6 +7,12 @@ package bricoapp22;
 import java.util.HashSet;
 import java.util.Set;
 import bricoapp22.Categorie;
+import static bricoapp22.NewClass.con;
+import static bricoapp22.NewClass.stm;
+import static bricoapp22.Utilisateur.conn;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +27,28 @@ public class Administrateur extends Utilisateur{
     public Administrateur(String messageSignale, String nom, String prenom, String courriel, String telephone, String login, String motDePasse, String numeroCompte, TypeCompte typeCompte, String adresse) {
         super(nom, prenom, courriel, telephone, login, motDePasse, typeCompte, adresse);
         this.messageSignale = messageSignale;
+        insertAdmin();
+    }
+    public void insertAdmin(){
+        
+        try {
+            System.out.println("Id du super " + super.getIdUser());
+            conn.createConnectionDatabase();
+            String sql="Insert into Membre values(?,?,?)";
+            stm=con.prepareStatement(sql);
+            stm.setInt(1, super.getIdUser());
+            stm.setString(2, "actif");
+            stm.setInt(3, super.getIdUser());
+            
+            int resultat=stm.executeUpdate();
+             if (resultat>0){
+                 System.out.println("Insertion reussie");
+             }else{
+                 System.out.println("Insertion echouée");
+             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Utilisateur.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public Administrateur(String messageSignale) {

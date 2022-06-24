@@ -17,6 +17,10 @@ import java.util.logging.Logger;
  * @author fadi
  */
 public class Utilisateur {
+
+    public static int getIdUser() {
+        return idUser;
+    }
     protected String nom;
     protected String prenom;
     protected String courriel;
@@ -28,7 +32,7 @@ public class Utilisateur {
     protected String adresse;
     protected Set <Message> messageRecu = new HashSet(0);
     protected Set <Message> messageEnvoye = new HashSet(0);
-    public static int idUser=0;
+    private static int idUser=0;
     public static NewClass conn=new NewClass();
 
     public Utilisateur(String nom, String prenom, String courriel, String telephone, String login, String motDePasse, TypeCompte typeCompte, String adresse) {
