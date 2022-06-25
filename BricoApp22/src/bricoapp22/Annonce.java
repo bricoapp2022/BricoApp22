@@ -50,6 +50,7 @@ public class Annonce {
             
             
             String sql="Insert into Annonce values(?,?,?,?,?,?,?,?)";
+            
             stm=con.prepareStatement(sql);
             stm.setInt(1, idAnnonce);
             stm.setString(2,description);
@@ -60,6 +61,7 @@ public class Annonce {
             stm.setInt(7,categorie.getIdCategorie());
             stm.setInt(8,membre.getID());
             
+            String sql2="select categorie_id from categorie where nomcategorie=?";
             
             
             int resultat=stm.executeUpdate();

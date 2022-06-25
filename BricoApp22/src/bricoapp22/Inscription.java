@@ -223,6 +223,11 @@ public class Inscription extends javax.swing.JFrame {
         // Membre fouad = new Membre(true, "nomMembre", "prenomMembre", "courrielMembre", "514-zzzzzz", "loginMembre", "secretMembre",  TypeCompte.M, "addresseMembre");
         TypeCompte tc= buttonGroup1.getSelection().equals("Membre")? TypeCompte.M:TypeCompte.A;
         Membre nouveauMembre = new Membre(true, jTextField1.getText(), jTextField2.getText(), jTextField5.getText(), jTextField4.getText(), jTextField6.getText(), jTextField7.getText(), tc, jTextField3.getText());
+        this.dispose();
+        Acceuil acceuil= new Acceuil();
+        acceuil.setVisible(true);
+        acceuil.idMembre=nouveauMembre.getIdUser();
+        acceuil.nouveauMembre=nouveauMembre;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

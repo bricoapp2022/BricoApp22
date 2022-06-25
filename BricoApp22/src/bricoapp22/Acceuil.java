@@ -13,6 +13,8 @@ public class Acceuil extends javax.swing.JFrame {
     /**
      * Creates new form Acceuil
      */
+    int idMembre;
+    Membre nouveauMembre=new Membre();
     public Acceuil() {
         initComponents();
     }
@@ -52,6 +54,11 @@ public class Acceuil extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Page d'acceuil", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 0, 13), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jButton1.setText("Crée Annonce");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("Recherche...");
 
@@ -210,6 +217,12 @@ public class Acceuil extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //System.out.println(idMembre);
+        Categorie cat1 = new Categorie(jComboBox1.getSelectedItem().toString());
+        Annonce annonce = new Annonce(jTextArea1.getText(), jTextField2.getText(), jTextField3.getText(), nouveauMembre,cat1 );
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
     /**
      * @param args the command line arguments
      */
